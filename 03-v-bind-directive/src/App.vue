@@ -80,8 +80,7 @@ export default defineComponent({
 
       user['classProperty'] === 'border-none' ? user['classProperty'] = 'border-blue': user['classProperty'] = 'border-none'
       
-      
-      this.users = this.users.map((u: IUser) => u.id === user.id ? {...u, classProperty: user['classProperty']}: {...u, classProperty: 'border-none'})
+      this.users = this.users.map((u: IUser) => u.id === user.id ? user : {...u, classProperty: 'border-none'})
     }
   },
 });
