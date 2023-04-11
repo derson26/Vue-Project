@@ -1,7 +1,7 @@
 <template>
   <div class="cards">
     
-    <figure class="card" v-for="user in listAllUsers" :key="user.id" :class="user.classProperty">
+    <figure class="card" v-for="user, index in listAllUsers" :key="index" :class="user.classProperty">
       <img :src="user.avatar" :alt="user.first_name + 'picture'" />
       <figcaption>
         <p>{{ user.email }}</p>
@@ -77,12 +77,11 @@ export default defineComponent({
 
   methods: {
     changeBorder(user: IUser) {
-      if (user.classProperty === 'border-none') {
-        user['classProperty'] = 'border-blue'
-      } else {
-        user['classProperty'] = 'border-none'
-      }
-      this.users = this.users.map((u: IUser) => u.id === user.id ? {...user}: {...u, classProperty: 'border-none'})
+
+      user['classProperty'] === 'border-none' ? user['classProperty'] = 'border-blue': user['classProperty'] = 'border-none'
+      
+      
+      this.users = this.users.map((u: IUser) => u.id === user.id ? {...u, classProperty: user['classProperty']}: {...u, classProperty: 'border-none'})
     }
   },
 });
