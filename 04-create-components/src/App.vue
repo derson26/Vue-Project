@@ -2,7 +2,7 @@
 import ButtonStyled from './components/ButtonStyled.vue';
 
 <template>
-  <ButtonStyled color="success"></ButtonStyled>
+  <ButtonStyled color="danger"></ButtonStyled>
 </template>
 
 <script lang="ts">
