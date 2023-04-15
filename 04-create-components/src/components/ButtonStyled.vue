@@ -1,16 +1,32 @@
 <template>
-  <button :class="['button-styled', color]">
+
+  <ul v-show="show">
+    <li>{{ user.id }}</li>
+    <li>{{ user.name }}</li>
+  </ul>
+
+  <button :class="['button-styled', color]" @click="f_show">
     Button
     <span>Derson Ussuale</span>
   </button>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, PropType } from 'vue';
+
+type TUser = {
+  name: String,
+  id: number
+}
 
 type TColor = 'primary' | 'danger' | 'success';
 
 export default defineComponent({
+  data() {
+    return {
+      show: true,
+    }
+  },
   props: {
     color: {
       type: String, // or [String, Number, Object]
@@ -20,7 +36,15 @@ export default defineComponent({
         return ['primary', 'danger', 'success'].includes(value)
       }
     },
-    
+    user: {
+      type: Object as PropType<TUser>,
+      required: true,
+    }
+  },
+  methods: {
+    f_show() {
+      this.show = !this.show
+    }
   }
 })
 </script>

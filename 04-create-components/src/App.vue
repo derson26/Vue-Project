@@ -2,7 +2,7 @@
 import ButtonStyled from './components/ButtonStyled.vue';
 
 <template>
-  <ButtonStyled color="danger"></ButtonStyled>
+  <ButtonStyled :user="user" color="primary"></ButtonStyled>
 </template>
 
 <script lang="ts">
@@ -13,6 +13,15 @@ export default defineComponent({
   components: {
     ButtonStyled,
   },
+  data() {
+    return {
+      user: {
+        name: 'Derson Ussuale',
+        id: 1,
+      }
+    }
+  }
+  
 });
 </script>
 <style scoped>
