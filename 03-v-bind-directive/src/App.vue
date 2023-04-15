@@ -2,6 +2,7 @@
   <div class="cards">
     
     <figure class="card" v-for="user, index in listAllUsers" :key="index" :class="user.classProperty">
+      <!-- You can use eg. v-bind:url or :url -->
       <img :src="user.avatar" :alt="user.first_name + 'picture'" />
       <figcaption>
         <p>{{ user.email }}</p>
